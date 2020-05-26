@@ -44,12 +44,6 @@
                     <input type="text" name="phno" id="phno"></label>
             </div>
 
-            <!-- <div class="row" id="num">
-                <div class="col-md-12"></div>
-                <label class="col-md-6">Phone*<br>
-                    <input type="number" name="phno" id="phno"></label>
-
-            </div> -->
 
             <div class="row">
                 <div class="col-md-2"></div>
@@ -134,20 +128,6 @@
         const mailId = document.querySelector("input[name='mail']").value;
         const mobno = document.querySelector("input[name='phno']").value;
 
-        
-        // for(var i = 0; i < (fname.length); i++){
-        //     ch = fname.charAt(i);
-        //     if(!(ch>='a' && ch<='z') &&! (ch>='A' && ch<='Z') && !(ch=='')){
-        //         alert("Invalid name");
-        //         break;
-        //     }
-            
-        // }
-
-        // if(!(isNaN(fname))){
-        //     alert("Please Enter the correct name!");
-        // }(/\s/g.test(fname)
-
         if(!((/^[a-zA-Z ]+$/.test(fname)) || fname.length==0)) {
             alert("Enter valid name");
         }
@@ -160,10 +140,7 @@
               alert("Invalid mob no.")
 
           }
-        //   else if((mobno.length) < 10 || (mobno.length) >10) {
-        //         alert("Invalid mobile no.");
-        //         }
-
+        
         else {
         
                     let customer = {

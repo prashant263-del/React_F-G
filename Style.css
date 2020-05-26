@@ -82,6 +82,9 @@ h4 {
 	margin-top: 0px;
 }
 
+
+/* table formatting */
+
 /* @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto'); */
 *{
  margin:0;
@@ -138,9 +141,6 @@ tr{
 tr:nth-child(even){
  background-color: #eeeeee;
 }
-
-
-/* table formatting */
 
 
 nav {

@@ -30,7 +30,7 @@
                     <th>Name</td>
                     <th>Email</th>
                     <th>Phone</td>
-                    <th>Rating</td>
+                    <th>Overall Rating</td>
                     <th>Message</td>
                 </tr>
             </thead>
@@ -64,9 +64,9 @@
                 phoneColumn.textContent = customer.phone;
                 tableRow.append(phoneColumn);
                 
-                const ratingColumn = document.createElement('td');
-                ratingColumn.textContent = customer.serviceRating;
-                tableRow.append(ratingColumn);
+                const ovrratingColumn = document.createElement('td');
+                ovrratingColumn.textContent = customer.dineRating;
+                tableRow.append(ovrratingColumn);
 
                 const messageColumn = document.createElement('td');
                 messageColumn.textContent = customer.message;
