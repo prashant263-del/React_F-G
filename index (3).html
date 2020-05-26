@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Feedback Form</title>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="Style.css">
+
+</head>
+
+<body>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="./index (3).html" class="links">Form</a></li>
+                <li><a href="./showData.html" class="links">Table</a></li>
+            </ul>
+            <hr class="bg-white"
+        </nav>
+    </div>
+    <article>
+        <header>
+            <h1>Aromatic Bar</h1>
+            <p>We are committed to providing you with the best dining experience possible, so we welcome your comments.
+                Please fill out this questionnaire. Thank you.</p>
+        </header>
+    </article>
+
+    <div class="container">
+        <form>
+            <div class="row">
+                <div class="col-md-12"></div>
+                <label class="col-md-6">Full Name*<br>
+                    <input type="text" id="name" name="name" required></label>
+               
+                    <label class="col-md-6">Email*<br>
+                    <input type="text" id="mail" name="mail" required></label>
+                    <label class="col-md-6">Phone*<br>
+                    <input type="text" name="phno" id="phno"></label>
+            </div>
+
+            <!-- <div class="row" id="num">
+                <div class="col-md-12"></div>
+                <label class="col-md-6">Phone*<br>
+                    <input type="number" name="phno" id="phno"></label>
+
+            </div> -->
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-12">
+                    <hr class="bg-white">
+                    <h4 class="text-center">Please give your feedback below:</h4>
+                    <h5 class="mt-2">1.Please rate the quality of the service you received from your host.</h5>
+                    <label class="radio-inline"><input type="radio" name="service" value="bad">Bad</label>
+                    <label class="radio-inline"><input type="radio" name="service" value="fair">Fair</label>
+                    <label class="radio-inline"><input type="radio" name="service" value="good">Good</label>
+                    <label class="radio-inline"><input type="radio" name="service" value="excellent">Excellent</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-12">
+                    <h5 class="mt-2">2. Please rate the quality of your beverage.</h5>
+                    <label class="radio-inline"><input type="radio" name="bvg" value="bad">Bad</label>
+                    <label class="radio-inline"><input type="radio" name="bvg" value="fair">Fair</label>
+                    <label class="radio-inline"><input type="radio" name="bvg" value="good">Good</label>
+                    <label class="radio-inline"><input type="radio" name="bvg" value="excellent">Excellent</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-12">
+                    <h5 class="mt-2">3. Was our restaurant clean?</h5>
+                    <label class="radio-inline"><input type="radio" name="clean" value="bad">Bad</label>
+                    <label class="radio-inline"><input type="radio" name="clean" value="fair">Fair</label>
+                    <label class="radio-inline"><input type="radio" name="clean" value="good">Good</label>
+                    <label class="radio-inline"><input type="radio" name="clean" value="excellent">Excellent</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-12">
+                    <h5 class="mt-2">4. Please rate your overall dining experience.</h5>
+                    <label class="radio-inline"><input type="radio" name="dine" value="bad">Bad</label>
+                    <label class="radio-inline"><input type="radio" name="dine" value="fair">Fair</label>
+                    <label class="radio-inline"><input type="radio" name="dine" value="good">Good</label>
+                    <label class="radio-inline"><input type="radio" name="dine" value="excellent">Excellent</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12"></div>
+                <label class="col-md-6">Message*<br>
+                    <textarea maxlength="100" id="msg" required placeholder="Write yor message here" name="msgs" cols="48"
+                        rows="5"></textarea></label>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <button class="btn btn-primary" id="btn" style="width: 10%; position: absolute;">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+
+</body>
+<script type="text/javascript">
+    let customers = [];
+
+    const addCustomer = (e) => {
+        e.preventDefault();
+        if(!e.target.closest('form').checkValidity() || !e.target.closest('form').reportValidity()) {
+            e.target.closest('form').checkValidity()
+            e.target.closest('form').reportValidity()
+            return;
+        }
+       
+        
+        const service = document.querySelector("input[name='service']:checked");
+        const bvg = document.querySelector("input[name='bvg']:checked");
+        const clean = document.querySelector("input[name='clean']:checked");
+        const dine = document.querySelector("input[name='dine']:checked");
+        const fname = document.querySelector("input[name='name']").value;
+        const mailId = document.querySelector("input[name='mail']").value;
+        const mobno = document.querySelector("input[name='phno']").value;
+
+        
+        // for(var i = 0; i < (fname.length); i++){
+        //     ch = fname.charAt(i);
+        //     if(!(ch>='a' && ch<='z') &&! (ch>='A' && ch<='Z') && !(ch=='')){
+        //         alert("Invalid name");
+        //         break;
+        //     }
+            
+        // }
+
+        // if(!(isNaN(fname))){
+        //     alert("Please Enter the correct name!");
+        // }(/\s/g.test(fname)
+
+        if(!((/^[a-zA-Z ]+$/.test(fname)) || fname.length==0)) {
+            alert("Enter valid name");
+        }
+        else if(mailId.indexOf('@')<=0 || mailId.indexOf('@') == '') {
+            alert("Invalid Email-Id-'Put @ at proper place'");
+        } else if((mailId.charAt(mailId.length-4) != ".") && mailId.charAt(mailId.length-3) != "."){
+            alert("Invalid E-mail-'Check your Email-Id'! ");
+          } 
+          else if(!(/^[7-9]\d{9}$/.test(mobno)) && !(mobno.length==10)){
+              alert("Invalid mob no.")
+
+          }
+        //   else if((mobno.length) < 10 || (mobno.length) >10) {
+        //         alert("Invalid mobile no.");
+        //         }
+
+        else {
+        
+                    let customer = {
+                        name: document.querySelector('#name').value,
+                        email: document.querySelector('#mail').value,
+                        phone: document.querySelector('#phno').value,
+                        message: document.querySelector('#msg').value,
+                        serviceRating: service ? service.value : 1,
+                        bvgRating: bvg ? bvg.value : 1,
+                        cleanRating: clean ? clean.value : 1,
+                        dineRating: dine ? dine.value : 1,
+                        
+                    }
+                    customers.push(customer);
+
+                    console.warn('Thank You For your feedback');
+                    alert("Thank you for completing the information");
+                    document.forms[0].reset();
+                    //saving to localStorage
+                    localStorage.setItem('MyCustList', JSON.stringify(customers));
+        }
+    }
+
+    document.querySelector('#btn').addEventListener('click', addCustomer);
+</script>
+
+</html>

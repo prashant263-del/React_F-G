@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="Style.css">
+
+    <title>Detail Page</title>
+</head>
+
+<body>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="./index (3).html">Form</a></li>
+                <li><a href="./showData.html">Table</a></li>
+            </ul>
+        </nav>
+    </div>
+    <h1>All Feedback</h1>
+    <div id="result-table">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</td>
+                    <th>Email</th>
+                    <th>Phone</td>
+                    <th>Rating</td>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                
+            </tbody>
+        </table>
+        <br>
+    </div>
+
+    <script>
+        function getData() {
+            return JSON.parse(localStorage.getItem('MyCustList') || "[]");
+        }
+
+        const showData = () => {
+            const tableBody = document.querySelector("#table-body");
+            const data = getData();
+            
+            data.forEach((customer) => {
+                const tableRow = document.createElement('tr');
+                const nameColumn = document.createElement('td');
+                nameColumn.textContent = customer.name;
+                tableRow.append(nameColumn);
+
+                const emailColumn = document.createElement('td');
+                emailColumn.textContent = customer.email;
+                tableRow.append(emailColumn);
+
+                const phoneColumn = document.createElement('td');
+                phoneColumn.textContent = customer.phone;
+                tableRow.append(phoneColumn);
+                
+                const ratingColumn = document.createElement('td');
+                ratingColumn.textContent = customer.serviceRating;
+                tableRow.append(ratingColumn);
+                tableBody.append(tableRow);
+            })
+        }
+
+        showData();
+    </script>
+</body>
+
+</html>
