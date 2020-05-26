@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="Style.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
     <title>Detail Page</title>
 </head>
 
@@ -11,12 +11,13 @@
     <div>
         <nav>
             <ul>
-                <li><a href="./index (3).html">Form</a></li>
+                <li><a href="./index.html">Form</a></li>
                 <li><a href="./showData.html">Table</a></li>
             </ul>
+            <hr class="bg-white">
         </nav>
     </div>
-    <h1>All Feedback</h1>
+    <h1 class="feedback">All Feedback</h1>
     <div id="result-table">
         <table border="1">
             <thead>
@@ -25,6 +26,7 @@
                     <th>Email</th>
                     <th>Phone</td>
                     <th>Rating</td>
+                    <th>Message</td>
                 </tr>
             </thead>
             <tbody id="table-body">
@@ -60,6 +62,12 @@
                 const ratingColumn = document.createElement('td');
                 ratingColumn.textContent = customer.serviceRating;
                 tableRow.append(ratingColumn);
+
+                const messageColumn = document.createElement('td');
+                messageColumn.textContent = customer.message;
+                tableRow.append(messageColumn);
+               
+               
                 tableBody.append(tableRow);
             })
         }
