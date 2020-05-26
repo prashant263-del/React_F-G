@@ -76,6 +76,12 @@ h4 {
 	bottom: 20p;
 }
 
+.feedback {
+	margin-left: 30px;
+	text-decoration: underline;
+	margin-top: 0px;
+}
+
 /* @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto'); */
 *{
  margin:0;
