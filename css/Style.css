@@ -76,6 +76,9 @@ h1 {
 h3 {
 	margin-left: 30px;
 }
+#h3{
+	color: #000;
+}
 h4 {
 	color: blue;
 }
@@ -109,7 +112,7 @@ table{
  position: absolute;
  z-index: 2;
  left: 49%;
- top: 44%;
+ top: 50%;
  transform: translate(-50%,-50%);
  width: 90%; 
  border-collapse: collapse;
