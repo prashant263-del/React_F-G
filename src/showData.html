@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/Style.css">
+    <!-- <link rel="stylesheet" href="./tableStyle.css"> -->
+    <title>Detail Page</title>
+</head>
+
+<body>
+    <div>
+        <nav>
+            <ul>
+                <li><a id="frm" href="../index.html" class="links">Form</a></li>
+                <li><a id="tbl" href="./showData.html" class="links">Table</a></li>
+            </ul>
+          </nav>
+    </div>
+    <h3 class="feedback">All Feedback</h3>
+    <div id="result-table">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</td>
+                    <th>Email</th>
+                    <th>Phone</td>
+                    <th>Service Rating</td>
+                    <th>Beverages Quality</td>
+                    <th>Cleanliness</td>
+                    <th>Dining Experience</td>
+                    <th>Message</td>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                
+            </tbody>
+        </table>
+        <br>
+        <div id="rate">( '1' in the table indicates that user has not selected any option. ) </div>
+    </div>
+
+<script src="./table.js"></script>
+</body>
+
+</html>

@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="./css/Style.css">
 
 </head>
 
@@ -17,7 +17,7 @@
           <nav>
             <ul>
                 <li><a id="frm" href="./index.html" class="links">Form</a></li>
-                <li><a id="tbl" href="./showData.html" class="links">Table</a></li>
+                <li><a id="tbl" href="./src/showData.html" class="links">Table</a></li>
             </ul>
           </nav>
     <article>
@@ -29,11 +29,13 @@
     </article>
 
     <div id="box">
-        <form>
+        <form name="abc">
             <div class="row">
                 <div class="col-md-12"></div>
                 <label class="col-md-6">Full Name*<br>
-                    <input type="text" id="name" name="name" required></label>
+                    <input type="text" id="name" name="name" required><br>
+                </label>
+                    
                
                     <label class="col-md-6">Email*<br>
                     <input type="text" id="mail" name="mail" required></label>
@@ -87,7 +89,7 @@
                     <label class="radio-inline"><input type="radio" name="dine" value="excellent">Excellent</label>
                 </div>
             </div>
-
+            
             <div class="row">
                 <div class="col-md-12"></div>
                 <label class="col-md-6">Message*<br>
@@ -105,69 +107,5 @@
 
 
 </body>
-<script type="text/javascript">
-    // Declaring Array
-    let customers = JSON.parse(localStorage.getItem('MyCustList') || "[]")
-
-    // Storing records of feedback
-    const addCustomer = (e) => {
-        e.preventDefault();
-        if(!e.target.closest('form').checkValidity() || !e.target.closest('form').reportValidity()) {
-            e.target.closest('form').checkValidity()
-            e.target.closest('form').reportValidity()
-            return;
-        }
-       
-        // Getting Radio Values from user
-        const service = document.querySelector("input[name='service']:checked");
-        const bvg = document.querySelector("input[name='bvg']:checked");
-        const clean = document.querySelector("input[name='clean']:checked");
-        const dine = document.querySelector("input[name='dine']:checked");
-        const fname = document.querySelector("input[name='name']").value;
-        const mailId = document.querySelector("input[name='mail']").value;
-        const mobno = document.querySelector("input[name='phno']").value;
-
-
-        // VALIDATIONS of Name, E-mail, Phone Number
-        if(!((/^[a-zA-Z ]+$/.test(fname)) || fname.length==0)) {
-            alert("Enter valid name");
-        }
-        else if(mailId.indexOf('@')<=0 || mailId.indexOf('@') == '') {
-            alert("Invalid Email-Id-'Put @ at proper place'");
-        } else if((mailId.charAt(mailId.length-4) != ".") && mailId.charAt(mailId.length-3) != "."){
-            alert("Invalid E-mail-'Check your Email-Id'! ");
-          } 
-          else if(!(/^[7-9]\d{9}$/.test(mobno)) && !(mobno.length==10)){
-              alert("Invalid mob no.")
-
-          }
-        
-        else {
-        
-                    let customer = {
-                        name: document.querySelector('#name').value,
-                        email: document.querySelector('#mail').value,
-                        phone: document.querySelector('#phno').value,
-                        message: document.querySelector('#msg').value,
-                        serviceRating: service ? service.value : 1,
-                        bvgRating: bvg ? bvg.value : 1,
-                        cleanRating: clean ? clean.value : 1,
-                        dineRating: dine ? dine.value : 1,
-                        
-                    }
-                    customers.push(customer);
-
-                    console.warn('Thank You For your feedback');
-                    alert("Thank you for completing the information");
-                    document.forms[0].reset();
-                    
-                    //saving to localStorage
-                    localStorage.setItem('MyCustList', JSON.stringify(customers));
-        }
-    }
-
-    // Clicking on Submit Button
-    document.querySelector('#btn').addEventListener('click', addCustomer);
-</script>
-
+<script src="./src/form.js"></script>
 </html>
