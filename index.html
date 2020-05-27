@@ -14,24 +14,21 @@
 </head>
 
 <body>
-    <div>
-        <nav>
+          <nav>
             <ul>
-                <li><a href="./index.html" class="links">Form</a></li>
-                <li><a href="./showData.html" class="links">Table</a></li>
+                <li><a id="frm" href="./index.html" class="links">Form</a></li>
+                <li><a id="tbl" href="./showData.html" class="links">Table</a></li>
             </ul>
-            <hr class="bg-white">
-        </nav>
-    </div>
+          </nav>
     <article>
         <header>
             <h4>Aromatic Bar</h4>
-            <p>We are committed to providing you with the best dining experience possible, so we welcome your comments.
+            <p >We are committed to providing you with the best dining experience possible, so we welcome your comments.
                 Please fill out this questionnaire. Thank you.</p>
         </header>
     </article>
 
-    <div class="container">
+    <div id="box">
         <form>
             <div class="row">
                 <div class="col-md-12"></div>
@@ -100,7 +97,7 @@
 
             <div class="row">
                 <div class="col-md-2"></div>
-                <button class="btn btn-primary" id="btn" style="width: 10%; position: absolute;">Submit</button>
+                <button class="btn btn-primary" id="btn" style="width: 8%;margin-bottom: 10px; margin-left: 15px; position: absolute;">Submit</button>
             </div>
 
         </form>
@@ -109,8 +106,10 @@
 
 </body>
 <script type="text/javascript">
-    let customers = [];
+    // Declaring Array
+    let customers = JSON.parse(localStorage.getItem('MyCustList') || "[]")
 
+    // Storing records of feedback
     const addCustomer = (e) => {
         e.preventDefault();
         if(!e.target.closest('form').checkValidity() || !e.target.closest('form').reportValidity()) {
@@ -119,7 +118,7 @@
             return;
         }
        
-        
+        // Getting Radio Values from user
         const service = document.querySelector("input[name='service']:checked");
         const bvg = document.querySelector("input[name='bvg']:checked");
         const clean = document.querySelector("input[name='clean']:checked");
@@ -128,6 +127,8 @@
         const mailId = document.querySelector("input[name='mail']").value;
         const mobno = document.querySelector("input[name='phno']").value;
 
+
+        // VALIDATIONS of Name, E-mail, Phone Number
         if(!((/^[a-zA-Z ]+$/.test(fname)) || fname.length==0)) {
             alert("Enter valid name");
         }
@@ -159,11 +160,13 @@
                     console.warn('Thank You For your feedback');
                     alert("Thank you for completing the information");
                     document.forms[0].reset();
+                    
                     //saving to localStorage
                     localStorage.setItem('MyCustList', JSON.stringify(customers));
         }
     }
 
+    // Clicking on Submit Button
     document.querySelector('#btn').addEventListener('click', addCustomer);
 </script>
 
